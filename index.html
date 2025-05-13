@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flashcards de Negação em Inglês</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #007acc;
+      color: white;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .flashcard {
+      background: white;
+      border: 2px solid #007acc;
+      border-radius: 10px;
+      width: 300px;
+      margin: 15px;
+      padding: 20px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .flashcard:hover {
+      transform: scale(1.02);
+    }
+
+    .question {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .answer {
+      margin-top: 10px;
+      display: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 12px;
+      background-color: #007acc;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005e99;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Formas de Negação em Inglês</h1>
+    <p>Clique em cada cartão para revelar a explicação e o exemplo.</p>
+  </header>
+
+  <main id="flashcards-container">
+    <!-- Flashcards inseridos aqui pelo JavaScript -->
+  </main>
+
+  <footer>
+    <p>Criado por Eddy Coach — Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const flashcards = [
+      {
+        question: "1️⃣ Como negamos ações no presente?",
+        answer: "Use 'do not' (don’t) ou 'does not' (doesn’t).",
+        example: "I don’t eat meat. / She doesn’t drive.",
+        pronunciation: {
+          us: "Do not: /duː nɑːt/ (don’t: /doʊnt/); Does not: /dʌz nɑːt/ (doesn’t: /ˈdʌznt/)",
+          uk: "Do not: /duː nɒt/ (don’t: /dəʊnt/); Does not: /dʌz nɒt/ (doesn’t: /ˈdʌznt/)"
+        },
+        audio: {
+          us: "do-not-us.mp3",
+          uk: "do-not-uk.mp3"
+        }
+      },
+      {
+        question: "2️⃣ Como negamos no passado?",
+        answer: "Use 'did not' (didn’t) + verbo na forma base.",
+        example: "He didn’t go to work yesterday.",
+        pronunciation: {
+          us: "Did not: /dɪd nɑːt/ (didn’t: /ˈdɪdnt/)",
+          uk: "Did not: /dɪd nɒt/ (didn’t: /ˈdɪdnt/)"
+        },
+        audio: {
+          us: "did-not-us.mp3",
+          uk: "did-not-uk.mp3"
+        }
+      },
+      {
+        question: "3️⃣ Como negamos no futuro?",
+        answer: "Use 'will not' (won’t) + verbo na forma base.",
+        example: "They won’t attend the meeting.",
+        pronunciation: {
+          us: "Will not: /wɪl nɑːt/ (won’t: /woʊnt/)",
+          uk: "Will not: /wɪl nɒt/ (won’t: /wəʊnt/)"
+        },
+        audio: {
+          us: "will-not-us.mp3",
+          uk: "will-not-uk.mp3"
+        }
+      },
+      {
+        question: "4️⃣ Como expressamos incapacidade?",
+        answer: "Use 'cannot' ou 'can’t'.",
+        example: "She can’t swim.",
+        pronunciation: {
+          us: "Cannot: /ˈkænɑːt/ (can’t: /kænt/)",
+          uk: "Cannot: /ˈkænɒt/ (can’t: /kɑːnt/)"
+        },
+        audio: {
+          us: "cannot-us.mp3",
+          uk: "cannot-uk.mp3"
+        }
+      },
+      {
+        question: "5️⃣ O que significa 'never'?",
+        answer: "'Never' significa 'nunca' ou 'em nenhum momento'.",
+        example: "I have never visited Japan.",
+        pronunciation: {
+          us: "Never: /ˈnevər/",
+          uk: "Never: /ˈnevə/"
+        },
+        audio: {
+          us: "never-us.mp3",
+          uk: "never-uk.mp3"
+        }
+      },
+      {
+        question: "6️⃣ Qual é a diferença entre 'no' e 'not'?",
+        answer: "'No' é usado antes de um substantivo; 'not' é usado com verbos.",
+        example: "No problem. / I am not ready.",
+        pronunciation: {
+          us: "No: /noʊ/; Not: /nɑːt/",
+          uk: "No: /nəʊ/; Not: /nɒt/"
+        },
+        audio: {
+          us: "no-us.mp3",
+          uk: "no-uk.mp3"
+        }
+      },
+      {
+        question: "7️⃣ Como usamos 'nobody', 'nothing', etc.?",
+        answer: "São palavras negativas que substituem o sujeito ou objeto.",
+        example: "Nobody came to the event. / I saw nothing.",
+        pronunciation: {
+          us: "Nobody: /ˈnoʊbɑːdi/; Nothing: /ˈnʌθɪŋ/",
+          uk: "Nobody: /ˈnəʊbɒdi/; Nothing: /ˈnʌθɪŋ/"
+        },
+        audio: {
+          us: "nobody-us.mp3",
+          uk: "nobody-uk.mp3"
+        }
+      },
+      {
+        question: "8️⃣ O que significa 'neither...nor...'?",
+        answer: "Expressa dois negativos juntos.",
+        example: "He drinks neither tea nor coffee.",
+        pronunciation: {
+          us: "Neither: /ˈniːðər/; Nor: /nɔːr/",
+          uk: "Neither: /ˈnaɪðə/; Nor: /nɔː/"
+        },
+        audio: {
+          us: "neither-us.mp3",
+          uk: "neither-uk.mp3"
+        }
+      },
+      {
+        question: "9️⃣ Como usamos palavras como 'hardly', 'barely'?",
+        answer: "Significam 'quase não'.",
+        example: "She hardly slept. / I barely passed.",
+        pronunciation: {
+          us: "Hardly: /ˈhɑːrdli/; Barely: /ˈberli/",
+          uk: "Hardly: /ˈhɑːdli/; Barely: /ˈbeəli/"
+        },
+        audio: {
+          us: "hardly-us.mp3",
+          uk: "hardly-uk.mp3"
+        }
+      },
+      {
+        question: "🔟 Quais são exemplos de verbos negativos?",
+        answer: "Deny, refuse, lack — têm significados negativos.",
+        example: "He denied it. / They lack resources.",
+        pronunciation: {
+          us: "Deny: /dɪˈnaɪ/; Refuse: /rɪˈfjuːz/; Lack: /læk/",
+          uk: "Deny: /dɪˈnaɪ/; Refuse: /rɪˈfjuːz/; Lack: /læk/"
+        },
+        audio: {
+          us: "deny-us.mp3",
+          uk: "deny-uk.mp3"
+        }
+      }
+    ];
+
+    const container = document.getElementById("flashcards-container");
+
+    flashcards.forEach(card => {
+      const cardDiv = document.createElement("div");
+      cardDiv.className = "flashcard";
+
+      const question = document.createElement("div");
+      question.className = "question";
+      question.textContent = card.question;
+
+      const answer = document.createElement("div");
+      answer.className = "answer";
+      answer.innerHTML = `<strong>Explicação:</strong> ${card.answer}<br><strong>Exemplo:</strong> ${card.example}<br><strong>Pronúncia (EUA):</strong> ${card.pronunciation.us}<br><strong>Pronúncia (Reino Unido):</strong> ${card.pronunciation.uk}`;
+
+      const showBtn = document.createElement("button");
+      showBtn.textContent = "Mostrar Resposta";
+      showBtn.onclick = () => answer.style.display = "block";
+
+      const audioUsBtn = document.createElement("button");
+      audioUsBtn.textContent = "🔊 Áudio (EUA)";
+      audioUsBtn.onclick = () => {
+        const audio = new Audio(card.audio.us);
+        audio.play().catch(error => console.error("Erro ao reproduzir áudio (EUA):", error));
+      };
+
+      const audioUkBtn = document.createElement("button");
+      audioUkBtn.textContent = "🔊 Áudio (Reino Unido)";
+      audioUkBtn.onclick = () => {
+        const audio = new Audio(card.audio.uk);
+        audio.play().catch(error => console.error("Erro ao reproduzir áudio (Reino Unido):", error));
+      };
+
+      cardDiv.appendChild(question);
+      cardDiv.appendChild(showBtn);
+      cardDiv.appendChild(audioUsBtn);
+      cardDiv.appendChild(audioUkBtn);
+      cardDiv.appendChild(answer);
+      container.appendChild(cardDiv);
+    });
+  </script>
+</body>
+</html>
